@@ -1,26 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FBFBFB;
+  --foreground: #151419;
+  --light-background: #fcfcfc;
+  --button-color: #2596be;
+  --dark-background: #222527;
 }
+
+@font-face {
+  font-family: "Manrope";
+  src: url('/fonts/Manrope/Manrope.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Inter";
+  src: url('/fonts/Inter.ttf') format('truetype');
+}
+@font-face {
+  font-family: "DarkerGrotesque";
+  src: url('/fonts/DarkerGrotesque.ttf') format('truetype');
+}
+
+
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-light-background: var(--light-background);
+  --color-button: var(--button-color);
+  --color-dark-background: var(--dark-background);
+  --font-manrope: var(--font-manrope);
+  --font-darker-grotesque: var(--font-darker-grotesque);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Manrope", sans-serif;
 }
