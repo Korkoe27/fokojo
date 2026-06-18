@@ -105,7 +105,7 @@ const Services = () => {
   return (
     <div
       id="services"
-      className="w-full min-h-screen bg-linear-to-b to-[#878787]/12 from-[#ECECEC]/18 py-16 lg:py-24"
+      className="w-full min-h-screen bg-linear-to-b to-[#e1e2e2] from-[#fcfcfc] py-16 lg:py-24"
     >
       <div className="mx-auto h-full w-11/12 max-w-[1280px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">

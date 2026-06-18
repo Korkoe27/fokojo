@@ -563,7 +563,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="w-full py-20 lg:py-28 bg-gradient-to-b from-[#878787]/10 to-[#ECECEC]/15"
+      className="w-full py-20 lg:py-28 bg-linear-to-b from-[#e1e2e2] to-[#fcfcfc]"
     >
       <div className="mx-auto w-11/12 max-w-[1280px]">
 

@@ -8,7 +8,7 @@ const Industries = () => {
   return (
     <div
       id="industries"
-      className="w-full bg-linear-to-b to-[#878787]/12 from-[#ECECEC]/18 py-16 lg:py-24"
+      className="w-full bg-linear-to-b to-[#e1e2e2] from-[#fcfcfc] py-16 lg:py-24"
     >
       <div className="mx-auto w-11/12 max-w-[1280px]">
         {/* Header */}
