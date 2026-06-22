@@ -575,13 +575,13 @@ export default function Contact() {
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="mb-14"
         >
-          <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#8E6E53] font-[Manrope] mb-3">
-            Get in Touch
-          </p>
-          <h2 className="text-4xl lg:text-5xl font-extrabold font-[Manrope] leading-[1.08] tracking-tight text-[#0B1F3B]  mb-4">
+          <h2 className="text-4xl lg:text-5xl font-extrabold font-[Manrope] lg:max-w-1/2 leading-[1.08] tracking-tight text-[#0B1F3B]  mb-4">
             Let&apos;s build something{" "}
             <em className="not-italic text-[#8E6E53]">together</em>
           </h2>
+          <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#8E6E53] font-[Manrope] mb-3">
+            Get in Touch
+          </p>
           <p className="text-[15px] leading-relaxed text-[#555] max-w-xl">
             Whether you&apos;re a manufacturer, distributor, or simply exploring — our
             trade experts are ready to help you unlock new markets.

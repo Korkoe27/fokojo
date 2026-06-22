@@ -122,7 +122,7 @@ const About = () => {
               from market entry to full-scale distribution networks.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mt-8">
+            <div className="grid md:grid-cols-2 gap-3 mt-8">
               {[
                 { label: "Our Mission", text: aboutContent.mission },
                 { label: "Our Vision", text: aboutContent.vision },
@@ -186,12 +186,12 @@ const About = () => {
             variants={fadeUp}
             className="mb-9"
           >
-            <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#8E6E53] font-[Manrope] mb-2">
-              What we stand for
-            </p>
             <h3 className="text-3xl font-extrabold font-[Manrope] tracking-tight text-[#0B1F3B] mb-1">
               Core values
             </h3>
+            <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#8E6E53] font-[Manrope] mb-2">
+              What we stand for
+            </p>
             <p className="text-sm text-[#888]">
               The principles that shape every partnership and decision we make.
             </p>
@@ -244,12 +244,12 @@ const About = () => {
             variants={fadeUp}
             className="mb-12"
           >
-            <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#8E6E53] font-[Manrope] mb-2">
-              Ten years of growth
-            </p>
             <h3 className="text-3xl font-extrabold font-[Manrope] tracking-tight text-[#0B1F3B] mb-1">
               Our journey
             </h3>
+            <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#8E6E53] font-[Manrope] mb-2">
+              Ten years of growth
+            </p>
             <p className="text-sm text-[#888]">
               Key milestones that define who we are today.
             </p>
