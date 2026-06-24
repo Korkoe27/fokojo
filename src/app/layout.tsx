@@ -21,7 +21,7 @@ export default function RootLayout({
       lang="en"
       // className={`antialiased`}
     >
-      <body className="min-h-full flex w-full flex-col">
+      <body className="min-h-full flex bg-linear-to-b to-[#e1e2e2] from-[#fcfcfc] w-full flex-col">
         <ThemeProvider attribute="class">
           <Header/>
           {children}
