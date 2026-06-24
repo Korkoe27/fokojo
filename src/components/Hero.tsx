@@ -24,7 +24,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative w-full min-h-screen bg-[url('/hero-bg-mobile.png')] md:bg-[url('/hero-bg.png')] bg-cover bg-center flex flex-col overflow-hidden"
+      className="relative w-full min-h-screen bg-white bg-[url('/hero-bg-mobile.png')] md:bg-[url('/hero-bg.png')] bg-cover bg-center flex flex-col overflow-hidden"
     >
       {/* Overlay */}
       <div
