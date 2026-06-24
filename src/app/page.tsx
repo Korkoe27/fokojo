@@ -7,7 +7,7 @@ import Services from "@/components/Services";
 
 export default function Home() {
   return (
-<main className="">
+<main className="w-full h-full">
     <Hero />
     <About/>
     <Services/>

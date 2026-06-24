@@ -4,8 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import useActiveSection from "@/hooks/useActiveSection";
 import { scrollToSection } from "@/lib/utils";
-import { Menu, X, Globe, Moon, Sun, ArrowRight } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 const emptySubscribe = () => () => {};
 
@@ -17,38 +16,12 @@ function useIsMounted() {
   );
 }
 
-function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const mounted = useIsMounted();
-
-  if (!mounted) {
-    return (
-      <button className="">
-        <Moon className="h-5 w-5" />
-      </button>
-    );
-  }
-
-  return (
-    <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="px-2 py-2 rounded-full bg-black/50 backdrop-blur-md text-black/70 hover:text-[#1F919C] transition-colors duration-200"
-    >
-      {theme === "dark" ? (
-        <Sun className="h-5 w-5" />
-      ) : (
-        <Moon className="h-5 w-5" />
-      )}
-    </button>
-  );
-}
-
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
-    const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const scrollRef = useRef(false);
 
   useEffect(() => {
@@ -69,7 +42,6 @@ const Header = () => {
     { href: "#services", title: "Services" },
     { href: "#industries", title: "Industries" },
     { href: "#partners", title: "Partners" },
-    { href: "#process", title: "Process" },
     { href: "#contact", title: "Contact" },
   ];
 
@@ -90,15 +62,11 @@ const Header = () => {
 
   return (
     <>
-      {/* Desktop Header */}
-
-      {/* bg-white/50 backdrop-blur-md  */}
-      <header 
-      className="max-lg:hidden
-      fixed z-20 w-full">
+      {/* Desktop Header — visible at 1280px and above */}
+      <header className="hidden xl:block fixed z-20 w-full">
         <div className="w-11/12 mx-auto max-w-[1280px] h-20 lg:py-4">
-          <div className="flex items-center  w-full h-full justify-between">
-            <Link href="/" className="">
+          <div className="flex items-center w-full h-full justify-between">
+            <Link href="/">
               <img
                 src="/logo-blue.svg"
                 alt="FoKojo"
@@ -106,12 +74,12 @@ const Header = () => {
               />
             </Link>
 
-            <nav className="flex items-center space-x-8">
+            <nav className="flex items-center space-x-2 xl:space-x-8">
               {nav_links.map((link) => (
                 <button
                   key={link.href}
                   onClick={(e) => handleSmoothScroll(e, link.href)}
-                  className={`text-xs bg-white/50 hover:bg-black/10 backdrop-blur-md  rounded-[50px] font-[Manrope] font-normal px-3 py-2 cursor-pointer transition-colors duration-200 ${
+                  className={`text-xs bg-white/50 hover:bg-black/10 backdrop-blur-md rounded-[50px] font-[Manrope] font-normal px-3 py-2 cursor-pointer transition-colors duration-200 whitespace-nowrap ${
                     activeSection === link.href.slice(1)
                       ? "text-[#F56E0F] bg-[#2596be]"
                       : "text-black"
@@ -122,30 +90,28 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* <ThemeToggle /> */}
-            <Link
-              href="/contact"
-              className="rounded-xl px-6 py-2 font-normal text-white font-[Manrope] capitalize bg-[#2596be] cursor-pointer no-underline"
+            <button
+              onClick={(e) => handleSmoothScroll(e, "#contact")}
+              className="rounded-xl px-6 py-2 font-normal text-white font-[Manrope] capitalize bg-[#2596be] cursor-pointer no-underline whitespace-nowrap"
             >
               Schedule a call
-            </Link>
+            </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Header */}
+      {/* Tablet + Mobile Header — visible below 1280px */}
       <header
-        className={`lg:hidden w-[95%] max-w-[1428px] fixed top-3 left-1/2 -translate-x-1/2 bg-white/40 border-b border-white/30 p-2 pl-5 overflow-hidden z-50 rounded-full
+        className={`xl:hidden w-[95%] max-w-[1428px] fixed top-3 left-1/2 -translate-x-1/2 bg-white/40 border-b border-white/30 p-2 pl-5 overflow-hidden z-50 rounded-full
           transition-[height,border-radius] ease-in-out
           ${
             menuOpen
-              ? "h-screen rounded-lg duration-[500ms,0ms] delay-[0ms,0ms] backdrop-blur-sm"
+              ? "h-screen flex flex-col rounded-lg duration-[500ms,0ms] delay-[0ms,0ms] backdrop-blur-sm"
               : "h-14 duration-[500ms,700ms] delay-[0ms,500ms] backdrop-blur-xs"
           }`}
       >
         <div className="w-full flex justify-between items-center">
           <div className="flex items-center gap-2">
-            {/* <ThemeToggle /> */}
             <button
               onClick={() => setMenuOpen((p) => !p)}
               className="text-[#2596be] relative z-50"
@@ -155,23 +121,23 @@ const Header = () => {
           </div>
 
           <Link href="/" className="flex items-center gap-2.5">
-            <img src="/logo-blue.svg" alt="ReblSoft" className="h-6" />
+            <img src="/logo-blue.svg" alt="FoKojo" className="h-6" />
           </Link>
 
-          <Link
-            href="/contact"
-            className="bg-[#2596be] text-white flex items-center justify-center w-10 h-10 rounded-full no-underline"
+          <button
+            onClick={(e) => handleSmoothScroll(e, "#contact")}
+            className="bg-[#2596be] text-white flex items-center justify-center w-10 h-10 rounded-full cursor-pointer"
           >
             <ArrowRight size={15} />
-          </Link>
+          </button>
         </div>
 
         <nav
-          className={`p-6 w-full transition-all ease-in-out text-center ${
+          className={`p-6 w-full transition-all ease-in-out h-full text-center ${
             menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >
-          <ul className="flex flex-col gap-5 ">
+          <ul className="flex flex-col justify-center h-full gap-15">
             {nav_links.map((link) => {
               const isActive = link.href.slice(1) === activeSection;
               return (
@@ -188,13 +154,14 @@ const Header = () => {
               );
             })}
             <li className="mt-4">
-              <Link
-                href="/contact"
-                className="block rounded-[50px] bg-[#05A0AF] py-2.5 text-base font-semibold text-white no-underline"
-                onClick={() => setMenuOpen(false)}
+              <button
+                onClick={(e) => {
+                  handleSmoothScroll(e, "#contact");
+                }}
+                className="block w-full rounded-[50px] bg-[#05A0AF] py-2.5 text-base font-semibold text-white cursor-pointer"
               >
                 Schedule a Call
-              </Link>
+              </button>
             </li>
           </ul>
         </nav>
@@ -202,7 +169,7 @@ const Header = () => {
 
       {/* Backdrop overlay */}
       <div
-        className={`fixed top-0 left-0 w-full h-full z-40 lg:hidden ${
+        className={`fixed top-0 left-0 w-full h-full z-40 xl:hidden ${
           menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none hidden"
