@@ -3,9 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Mail,
-  Phone,
-  MapPin,
   Send,
   Loader2,
   CheckCircle,
@@ -608,60 +605,79 @@ export default function Contact() {
               
             </div>
 
-            {/* Contact info */}
-            <div className="space-y-4">
-              {[
-                { Icon: Mail, label: "Email", value: "contact@fokojo.com", href: "mailto:contact@fokojo.com" },
-                { Icon: Phone, label: "Phone", value: "+1 (234) 567-890", href: "tel:+1234567890" },
-                { Icon: MapPin, label: "Offices", value: "Lagos · Dubai · Shenzhen", href: null },
-              ].map(({ Icon, label, value, href }, i) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, x: -12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 + i * 0.07 }}
-                  className="flex items-start gap-3.5"
-                >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#8E6E53]/10">
-                    <Icon size={16} className="text-[#8E6E53]" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#8E6E53] mb-0.5">
-                      {label}
-                    </div>
-                    {href ? (
-                      <a
-                        href={href}
-                        className="text-sm text-[#444]/70 hover:text-[#8E6E53] transition-colors"
-                      >
-                        {value}
-                      </a>
-                    ) : (
-                      <p className="text-sm text-[#444]/70">{value}</p>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+{/* Contact info */}
+<div className="space-y-3">
+  {[
+    {
+      icon: "/assets/icons/email.png",
+      label: "Email",
+      value: "contact@fokojo.com",
+      href: "mailto:contact@fokojo.com",
+    },
+    {
+      icon: "/assets/icons/phone.png",
+      label: "Phone",
+      value: "+1 (234) 567-890",
+      href: "tel:+1234567890",
+    },
+    {
+      icon: "/assets/icons/location.png",
+      label: "Offices",
+      value: "Lagos · Dubai · Shenzhen",
+      href: null,
+    },
+  ].map(({ icon, label, value, href }, i) => (
+    <motion.div
+      key={label}
+      initial={{ opacity: 0, x: -12 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 + i * 0.07 }}
+      className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white/50 border border-[#0B1F3B]/[0.06] hover:border-[#8E6E53]/30 hover:bg-white/70 transition-all duration-200"
+    >
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#8E6E53]/10">
+        <img src={icon} alt="" className="h-4.5 w-4.5 object-contain" />
+      </div>
+      <div className="min-w-0">
+        <p className="text-[9px] font-bold tracking-[0.14em] uppercase text-[#8E6E53] mb-0.5">
+          {label}
+        </p>
+        {href ? (
+          <a
+            href={href}
+            className="text-[13px] font-medium text-[#0B1F3B] hover:text-[#8E6E53] transition-colors truncate block"
+          >
+            {value}
+          </a>
+        ) : (
+          <p className="text-[13px] font-medium text-[#0B1F3B] truncate">{value}</p>
+        )}
+      </div>
+    </motion.div>
+  ))}
+</div>
 
-            <div className="h-px bg-[#0B1F3B]/08" />
+            <div className="h-px bg-[#0B1F3B]" />
 
-            <div className="space-y-3">
-              <p className="text-[10px] font-bold tracking-[0.14em] uppercase text-[#8E6E53]">
-                Response time
-              </p>
-              <p className="text-sm text-[#555] leading-relaxed">
-                We aim to respond to all enquiries within 24 hours during business days.
-              </p>
-              <p className="text-[10px] font-bold tracking-[0.14em] uppercase text-[#8E6E53] mt-4 pt-4 border-t border-[#0B1F3B]/08">
-                Partnership enquiries
-              </p>
-              <p className="text-sm text-[#555] leading-relaxed">
-                Interested in a formal partnership? Use the manufacturer or distributor
-                forms to receive a tailored proposal.
-              </p>
-            </div>
+<div className="rounded-xl border border-[#0B1F3B]/[0.06] bg-white/40 p-5 space-y-4">
+  <div>
+    <p className="text-[9px] font-bold tracking-[0.14em] uppercase text-[#8E6E53] mb-1.5">
+      Response time
+    </p>
+    <p className="text-[13px] text-[#555] leading-relaxed">
+      We aim to respond to all enquiries within 24 hours during business days.
+    </p>
+  </div>
+  <div className="h-px bg-[#0B1F3B]/06" />
+  <div>
+    <p className="text-[9px] font-bold tracking-[0.14em] uppercase text-[#8E6E53] mb-1.5">
+      Partnership enquiries
+    </p>
+    <p className="text-[13px] text-[#555] leading-relaxed">
+      Interested in a formal partnership? Use the manufacturer or distributor forms to receive a tailored proposal.
+    </p>
+  </div>
+</div>
           </motion.div>
 
           {/* ── Form card ── */}

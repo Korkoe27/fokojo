@@ -213,7 +213,6 @@ const Services = () => {
                 <AnimatePresence
                   initial={false}
                   custom={direction}
-                  mode="popLayout"
                 >
                   <motion.div
                     key={activeIndex}

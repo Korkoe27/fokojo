@@ -29,8 +29,12 @@ const Hero = () => {
       {/* Overlay */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-linear-to-b from-[#0B1F3B]/75 via-[#0B1F3B]/50 to-[#0B1F3B]/70 pointer-events-none"
+        className="absolute inset-0 bg-linear-to-b from-[#000]/30  to-[#000]/60 pointer-events-none"
       />
+      {/* <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-linear-to-b from-[#0B1F3B]/75 via-[#0B1F3B]/50 to-[#0B1F3B]/70 pointer-events-none"
+      /> */}
 
       <div className="relative z-10 mx-auto w-11/12 max-w-[1280px] flex flex-col items-center max-lg:justify-center flex-1 py-32 lg:py-40">
 
@@ -43,8 +47,8 @@ const Hero = () => {
           className="mb-7"
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-[#2596be]/40 bg-[#2596be]/15 px-4 py-1.5">
-            <span className="h-[7px] w-[7px] rounded-full bg-[#64b3cf] animate-pulse" />
-            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#a8d8ea] font-[Manrope]">
+            <span className="h-[7px] w-[7px] rounded-full bg-[#fff]/70 animate-pulse" />
+            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#fff]/60 font-[Manrope]">
               Trusted by 500+ global partners
             </span>
           </span>

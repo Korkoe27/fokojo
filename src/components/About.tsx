@@ -92,9 +92,21 @@ const About = () => {
   return (
     <section
       id="about"
-      className="w-full min-h-screen my-16 lg:my-24"
+      className="w-full min-h-screen my-16 lg:my-24 relative overflow-hidden"
     >
-      <div className="mx-auto w-11/12 max-w-[1280px]">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.1]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #2596be 1px, transparent 1px),
+            linear-gradient(to bottom, #2596be 1px, transparent 1px)
+          `,
+          backgroundSize: "100px 100px",
+        }}
+      />
+
+      <div className="mx-auto w-11/12 max-w-[1280px] z-10">
 
         {/* ── Hero intro ─────────────────────────────────────── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 mb-20 items-start">
@@ -122,24 +134,49 @@ const About = () => {
               from market entry to full-scale distribution networks.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-3 mt-8">
-              {[
-                { label: "Our Mission", text: aboutContent.mission },
-                { label: "Our Vision", text: aboutContent.vision },
-              ].map((card) => (
-                <div
-                  key={card.label}
-                  className="rounded-xl border border-[#8E6E53]/18 bg-white/70 p-5 border-t-[3px] border-t-[#8E6E53]"
-                >
-                  <p className="text-[10px] font-bold font-[Manrope] tracking-[0.14em] uppercase text-[#8E6E53] mb-2">
-                    {card.label}
-                  </p>
-                  <p className="text-[13px] leading-relaxed text-[#555]">
-                    {card.text}
-                  </p>
-                </div>
-              ))}
-            </div>
+<div className="grid md:grid-cols-2 gap-3 mt-8">
+  {[
+    {
+      label: "Our Mission",
+      text: aboutContent.mission,
+      icon: "/assets/icons/goal.png",
+      emoji: "🎯",
+    },
+    {
+      label: "Our Vision",
+      text: aboutContent.vision,
+      icon: "/assets/icons/spaceship.png",
+      emoji: "🚀",
+    },
+  ].map((card) => (
+    <div
+      key={card.label}
+      className="group relative rounded-2xl bg-white/60 border border-[#0B1F3B]/[0.07] p-6 overflow-hidden transition-shadow duration-300 hover:shadow-[0_6px_24px_rgba(11,31,59,0.07)]"
+    >
+      {/* Subtle left accent bar */}
+      <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-r-full bg-[#8E6E53]/40 group-hover:bg-[#8E6E53] transition-colors duration-300" />
+
+      <div className="pl-4">
+        <div className="flex items-center gap-2 mb-3">
+          <img
+            src={card.icon}
+            alt=""
+            className="h-5 w-5 object-contain opacity-80"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+            }}
+          />
+          <p className="text-[10px] font-bold font-[Manrope] tracking-[0.16em] uppercase text-[#8E6E53]">
+            {card.label}
+          </p>
+        </div>
+        <p className="text-[13px] leading-[1.75] text-[#4A4A4A] font-[Manrope]">
+          {card.text}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
           </motion.div>
 
           <motion.div
